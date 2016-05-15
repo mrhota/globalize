@@ -1,0 +1,2 @@
+# globalize
+Internationalization support
