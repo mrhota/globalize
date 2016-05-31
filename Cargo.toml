@@ -1,0 +1,15 @@
+[package]
+name = "globalize"
+version = "0.1.0"
+authors = ["A.J. Gardner <aaron.j.gardner@gmail.com>"]
+build = "build.rs"
+
+[build-dependencies]
+serde = "0.7.6"
+serde-pickle = "0.1"
+
+[dependencies]
+lazy_static = "0.2"
+regex = "0.1"
+serde = "0.7.6"
+serde-pickle = "0.1"
