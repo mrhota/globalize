@@ -3,6 +3,8 @@
 *.so
 *.rlib
 *.dll
+*.pyc
+__pycache__/
 
 # Executables
 *.exe

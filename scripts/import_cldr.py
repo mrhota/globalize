@@ -164,12 +164,10 @@ def debug_repr(obj):
 
 
 def write_datafile(path, data, dump_json=False):
-    with open(path, 'wb') as outfile:
-        pickle.dump(data, outfile, 2)
     if dump_json:
         import json
         with open(path + '.json', 'w') as outfile:
-            json.dump(data, outfile, indent=2, default=debug_repr)
+            json.dump(data, outfile, indent=2, default=debug_repr, ensure_ascii=False)
 
 
 def main():
@@ -179,7 +177,7 @@ def main():
         help='force import even if destination file seems up to date'
     )
     parser.add_option(
-        '-j', '--json', dest='dump_json', action='store_true', default=True,
+        '-j', '--json', dest='dump_json', action='store_true', default=False,
         help='also export debugging JSON dumps of locale data'
     )
 
@@ -199,7 +197,7 @@ def process_data(srcdir, destdir, force=False, dump_json=False):
     sup = parse(sup_filename)
 
     # Import global data from the supplemental files
-    global_path = os.path.join(destdir, 'global.dat')
+    global_path = os.path.join(destdir, 'global')
     global_data = {}
     if force or need_conversion(global_path, global_data, sup_filename):
         global_data.update(parse_global(srcdir, sup))
@@ -357,7 +355,7 @@ def _process_local_datas(sup, srcdir, destdir, force=False, dump_json=False):
             continue
 
         full_filename = os.path.join(srcdir, 'main', filename)
-        data_filename = os.path.join(destdir, 'locale-data', stem + '.dat')
+        data_filename = os.path.join(destdir, 'locale-data', stem)
 
         data = {}
         if not (force or need_conversion(data_filename, data, full_filename)):

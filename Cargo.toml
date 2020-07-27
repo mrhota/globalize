@@ -2,14 +2,18 @@
 name = "globalize"
 version = "0.1.0"
 authors = ["A.J. Gardner <aaron.j.gardner@gmail.com>"]
-build = "build.rs"
+build = "build/mod.rs"
 
 [build-dependencies]
-serde = "0.7.6"
-serde-pickle = "0.1"
+rmp = "0.8.7"
+serde = "1.0"
+serde_json = "1.0"
+rmp-serde = "0.13.7"
 
 [dependencies]
-lazy_static = "0.2"
-regex = "0.1"
-serde = "0.7.6"
-serde-pickle = "0.1"
+lazy_static = "1.0"
+regex = "0.2.10"
+rmp = "0.8.7"
+serde = "1.0"
+rmp-serde = "0.13.7"
+gtld-data = "0.4.1"

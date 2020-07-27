@@ -97,7 +97,8 @@ def main():
     subprocess.check_call([
         sys.executable,
         os.path.join(scripts_path, 'import_cldr.py'),
-        common_path])
+        common_path,
+        '-j'])
 
 
 if __name__ == '__main__':

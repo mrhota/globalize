@@ -1,5 +1,5 @@
 #![allow(dead_code)]
 
-pub mod Globalize {
+pub mod globalize {
 
 }
